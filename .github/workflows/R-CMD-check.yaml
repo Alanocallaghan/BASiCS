@@ -41,10 +41,17 @@ jobs:
         with:
           bioc-version: ${{ matrix.config.bioc }}
 
+      - name: Install magick dependencies
+        if: runner.os == 'macOS'
+        run: |
+          brew install imagemagick
+          brew install ffmpeg
+
       - name: Install dependencies
         uses: r-lib/actions/setup-r-dependencies@v1
         with:
           extra-packages: rcmdcheck, optparse, magick
+
 
       - name: Set up pandoc
         uses: r-lib/actions/setup-pandoc@master
