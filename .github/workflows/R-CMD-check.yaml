@@ -54,8 +54,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Check
-        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error", check_dir = "check")
-        shell: Rscript {0}
+        uses: r-lib/actions/check-r-package@v1
 
       - name: BiocCheck
         uses: insightsengineering/bioc-check-action@v1
