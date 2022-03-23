@@ -44,7 +44,7 @@ jobs:
       - name: Install dependencies
         uses: r-lib/actions/setup-r-dependencies@v1
         with:
-          extra-packages:
+          extra-packages: |
             - rcmdcheck
             - optparse
             - magick
