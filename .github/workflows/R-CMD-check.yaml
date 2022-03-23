@@ -62,7 +62,8 @@ jobs:
 
       - name: BiocCheck
         if: runner.os == 'Linux'
-        uses: insightsengineering/bioc-check-action@v1
+        run: BiocCheck::BiocCheck(dir('check', 'tar.gz$', full.names = TRUE), `quit-with-status` = TRUE)
+        shell: Rscript {0}
 
       - name: Show testthat output
         if: always()
