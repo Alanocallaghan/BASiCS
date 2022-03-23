@@ -41,17 +41,14 @@ jobs:
         with:
           bioc-version: ${{ matrix.config.bioc }}
 
-      - name: r-dependencies
+      - name: Install dependencies
         uses: r-lib/actions/setup-r-dependencies@v1
+        with:
+          extra-packages: rcmdcheck
 
       - name: Set up pandoc
         uses: r-lib/actions/setup-pandoc@master
         if: matrix.config.image == null
-
-      - name: Install remotes
-        run: |
-          install.packages('remotes')
-        shell: Rscript {0}
 
       - name: Check
         uses: r-lib/actions/check-r-package@v1
