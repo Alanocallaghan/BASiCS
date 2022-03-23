@@ -44,10 +44,7 @@ jobs:
       - name: Install dependencies
         uses: r-lib/actions/setup-r-dependencies@v1
         with:
-          extra-packages: |
-            - rcmdcheck
-            - optparse
-            - magick
+          extra-packages: rcmdcheck, optparse, magick
 
       - name: Set up pandoc
         uses: r-lib/actions/setup-pandoc@master
