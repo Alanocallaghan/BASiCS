@@ -57,13 +57,6 @@ jobs:
         if: runner.os == 'Linux'
         uses: insightsengineering/bioc-check-action@v1
 
-      - name: Upload check results
-        if: failure()
-        uses: actions/upload-artifact@master
-        with:
-          name: ${{ runner.os }}-r${{ matrix.config.r }}-results
-          path: check
-
       - name: Show testthat output
         if: always()
         run: find check -name 'testthat.Rout*' -exec cat '{}' \; || true
